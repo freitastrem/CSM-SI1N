@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato | Kaio Freitas</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    #popup-sucesso {
+      display: none;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #4CAF50;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 10px;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="curriculo.html">Currículo</a></li>
+        <li><a href="github.html">GitHub</a></li>
+        <li><a href="servicos.html">Serviços</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h1>Entre em Contato</h1>
+      <p>Tem dúvidas, sugestões ou quer apenas dizer oi? Estou aqui para ouvir você!</p>
+
+      <form id="form-contato" class="form-contato">
+        <label for="nome">Nome completo:</label>
+        <input type="text" id="nome" name="nome" required />
+
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone" required />
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label>Você é:</label>
+        <div class="radio-group">
+          <label><input type="radio" name="tipo_pessoa" value="Pessoa Física" required /> Pessoa Física</label>
+          <label><input type="radio" name="tipo_pessoa" value="Pessoa Jurídica" /> Pessoa Jurídica</label>
+        </div>
+
+        <label for="horario">Melhor horário para contato:</label>
+        <select id="horario" name="horario" required>
+          <option value="">Selecione</option>
+          <option value="Manhã">Manhã</option>
+          <option value="Tarde">Tarde</option>
+          <option value="Noite">Noite</option>
+        </select>
+
+        <label>Tipo de serviço desejado:</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="servico[]" value="Desenvolvimento Web" /> Desenvolvimento Web</label>
+          <label><input type="checkbox" name="servico[]" value="Manutenção de Sites" /> Manutenção de Sites</label>
+          <label><input type="checkbox" name="servico[]" value="Consultoria Técnica" /> Consultoria Técnica</label>
+        </div>
+
+        <label for="mensagem">Descreva o que deseja contratar:</label>
+        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+        <button type="submit">Enviar Mensagem</button>
+      </form>
+
+      <div class="info-contato">
+        <p><strong>Ou, se preferir:</strong></p>
+        <p>📞 Telefone: (27) 99865-1767</p>
+        <p>📧 E-mail: kaiosantosfreitas54@gmail.com</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 - Desenvolvido por Kaio Freitas</p>
+  </footer>
+
+  <div id="popup-sucesso">Mensagem enviada com sucesso!</div>
+
+  <script>
+    const form = document.getElementById("form-contato");
+    const popup = document.getElementById("popup-sucesso");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      form.reset();
+
+      popup.style.display = "block";
+
+      setTimeout(() => {
+        popup.style.display = "none";
+      }, 3000);
+    });
+  </script>
+
+</body>
+</html>
